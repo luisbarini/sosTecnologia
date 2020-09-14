@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="base/layout">
+
+<head>
+<title>Patrimônio - Listar</title>
+</head>
+
+<section layout:fragment="titulo">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1 class="m-0 text-dark">Patrimônio</h1>
+			</div>
+			<!-- /.col -->
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href="#">Patrimônio</a></li>
+					<li class="breadcrumb-item active">Listar</li>
+				</ol>
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+</section>
+
+<section layout:fragment="conteudo">
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					<h3 class="card-title">Patrimônios Disponíveis</h3>
+					<div class="card-tools">
+						<div class="input-group input-group-sm" style="width: 150px;">
+							<a class="btn btn-block btn-info" th:href="@{/patrimonio}"><span class="fa fa fa-file-text-o"> Adicionar</span></a>
+						</div>
+					</div>
+				</div>
+				<!-- /.card-header -->
+				<div class="card-body table-responsive p-0">
+					<table class="table table-hover" id="tabela_consulta">
+						<thead>
+							<tr>
+								<th>Tombo</th>
+								<th>Nome</th>
+								<th>Descrição</th>
+								<th>Marca</th>
+								<th style="width: 120px">Ações</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				</div>
+				<!-- /.card-body -->
+			</div>
+			<!-- /.card -->
+		</div>
+	</div>
+	<!-- /.row -->
+</section>
+
+<section layout:fragment="javascript">
+	<script type='text/javascript' th:src="@{/dwr/interface/PatrimonioRemoteProxy.js}"></script>
+	<script type='text/javascript' th:src="@{/js/patrimonio/patrimonio_listar.js}"></script>
+</section>

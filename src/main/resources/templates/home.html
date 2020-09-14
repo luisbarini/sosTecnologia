@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="base/layout">
+
+<section layout:fragment="titulo">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1 class="m-0 text-dark">Página Inicial</h1>
+			</div>
+			<!-- /.col -->
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active">Página Inicial</li>
+				</ol>
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+</section>
+
+<section layout:fragment="conteudo">
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Sistema de Patrimônio</h5>
+
+					<p class="card-text">Sistema completo para controle Patrimônial. <br>Entre em contato com a SOS Tecnologia para adquirir novos módulos</p>
+
+					<a href="https://sosdocs.com.br/" class="card-link">SOS Tecnologia</a>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<!-- /.row -->
+</section>
