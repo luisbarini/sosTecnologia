@@ -8,7 +8,6 @@ DEFAULT CHARSET=utf8
 COLLATE=utf8_general_ci;
 
 CREATE UNIQUE INDEX marca_id_IDX USING BTREE ON marca (id);
-CREATE INDEX marca_descricao_IDX USING BTREE ON marca (descricao);
 
 CREATE TABLE patrimonio (
 	id BIGINT(20) auto_increment NOT NULL,

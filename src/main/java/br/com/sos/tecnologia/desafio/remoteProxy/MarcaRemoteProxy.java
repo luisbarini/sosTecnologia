@@ -13,7 +13,7 @@ import br.com.sos.tecnologia.desafio.entity.MarcaEntity;
 import br.com.sos.tecnologia.desafio.service.MarcaService;
 
 @Service
-@RemoteProxy
+@RemoteProxy(name = "MarcaRemoteProxy")
 public class MarcaRemoteProxy {
 
 	private final MarcaService service;
