@@ -7,12 +7,12 @@
 	<div class="container-fluid">
 		<div class="row mb-2">
 			<div class="col-sm-6">
-				<h1 class="m-0 text-dark">Marcas</h1>
+				<h1 class="m-0 text-dark">Patrimônio</h1>
 			</div>
 			<!-- /.col -->
 			<div class="col-sm-6">
 				<ol class="breadcrumb float-sm-right">
-					<li class="breadcrumb-item"><a href="#">Marcas</a></li>
+					<li class="breadcrumb-item"><a href="#">Patrimônio</a></li>
 					<li class="breadcrumb-item active">Cadastrar / Editar</li>
 				</ol>
 			</div>
@@ -30,7 +30,7 @@
 				<!-- general form elements -->
 				<div class="card card-primary">
 					<div class="card-header">
-						<h3 class="card-title">Dados da Marca</h3>
+						<h3 class="card-title">Dados do Patrimônio</h3>
 					</div>
 					<!-- /.card-header -->
 					<!-- form start -->
@@ -38,17 +38,33 @@
 						<div class="card-body">
 							<div class="form-group">
 								<input type="hidden" th:if="*{id} != null" th:value="*{id}"
-									id="input_id"> <label for="input_descricao">Descrição</label>
-								<input type="text" class="form-control"
-									id="input_descricao" required
-									placeholder="Insira a descrição da marca"
-									th:value="*{descricao}">
+									id="input_id">
+							<input type="hidden" th:if="*{tombo} != null" th:value="*{tombo}"
+									id="input_tombo">		
+							 <label for="input_nome">Nome</label> <input
+									type="text" class="form-control" id="input_nome" required
+									maxlength="100" placeholder="Insira um nome para o tombo"
+									th:value="*{nome}">
+							</div>
+							<div class="form-group">
+								<label>Descrição</label>
+								<textarea class="form-control" rows="3" th:field="*{descricao}"
+									required id="input_descricao" maxlength="2000"
+									placeholder="Decreva os detalhes do patrimônio"></textarea>
+							</div>
+							<div class="form-group">
+								<label>Marca</label> <select class="form-control select2"
+									style="width: 100%" required id="select_marca" th:field="*{marca.id}">
+									<option value=""></option>
+									<option th:each="marca : ${marcas}" th:value="${marca.id}"
+										th:text="${marca.descricao}"></option>
+								</select>
 							</div>
 						</div>
 						<!-- /.card-body -->
 						<div class="card-footer">
 							<button type="submit" class="btn btn-primary">Salvar</button>
-							<a class="btn btn-default float-right" th:href="@{/marca/listar}"><span
+							<a class="btn btn-default float-right" th:href="@{/patrimonio/listar}"><span
 								class="fa fa fa-file-text-o">Voltar</span></a>
 						</div>
 					</form>
@@ -60,6 +76,8 @@
 </section>
 
 <section layout:fragment="javascript">
-	<script type='text/javascript' th:src="@{/dwr/interface/PatrimonioRemoteProxy.js}"></script>
-	<script type='text/javascript' th:src="@{/js/marca/marca_editar.js}"></script>
+	<script type='text/javascript'
+		th:src="@{/dwr/interface/PatrimonioRemoteProxy.js}"></script>
+	<script type='text/javascript'
+		th:src="@{/js/patrimonio/patrimonio_editar.js}"></script>
 </section>

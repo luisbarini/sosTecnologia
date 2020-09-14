@@ -10,7 +10,7 @@ import br.com.sos.tecnologia.desafio.entity.PatrimonioEntity;
 
 public interface PatrimonioRepository extends JpaRepository<PatrimonioEntity, Long>{
 
-	@Query(value = "select p.id, p.nome, p.tombo, p.descricao, p.descricao marcaDescricao, m.id marcaId "
+	@Query(value = "select p.id, p.nome, p.tombo, p.descricao, m.descricao marcaDescricao, m.id marcaId "
 				+ "from patrimonio p inner join marca m on m.id = p.marca_id order by p.tombo", nativeQuery = true)
 	public List<PatrimonioInterfaceDTO> listar();
 	

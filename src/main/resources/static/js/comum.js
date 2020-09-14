@@ -1,5 +1,9 @@
 $(document).ready(function() {
 	if(mensagem!=null) alerta('Sucesso', mensagem);
+	//Inicializa o Select2 e define o português Brasil como idioma
+	$('.select2').select2({
+		language: "pt-BR",
+	});
 });
 
 function alerta(titulo, mensagem) {

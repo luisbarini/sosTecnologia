@@ -33,7 +33,7 @@ public class PatrimonioRemoteProxy {
 								.build())
 				.collect(Collectors.toList());
 	}
-	
+
 	@RemoteMethod
 	public RespostaDTO excluir(Long id) {
 		try {
@@ -41,6 +41,23 @@ public class PatrimonioRemoteProxy {
 			return RespostaDTO.builder().mensagem("Patrimônio excluído com sucesso").sucesso(true).build();
 		} catch (Exception e) {
 			return RespostaDTO.builder().mensagem("Erro ao tentar excluir esse patrimônio: " + e.getMessage())
+					.sucesso(false).build();
+		}
+	}
+
+	@RemoteMethod
+	public RespostaDTO salvar(PatrimonioDTO patrimonioDTO) {
+		PatrimonioEntity entity = patrimonioDTO.converteParaEntity();
+		service.salvar(entity);
+		try {
+			if (patrimonioDTO.getId() == null)
+				return RespostaDTO.builder().mensagem("O novo patrimônio recebeu o tombo: " + entity.getTombo())
+						.sucesso(true).build();
+			else
+				return RespostaDTO.builder().mensagem("Dados do patrimônio alterados com sucesso").sucesso(true)
+						.build();
+		} catch (Exception e) {
+			return RespostaDTO.builder().mensagem("Erro ao tentar salvar o patrimônio: " + e.getMessage())
 					.sucesso(false).build();
 		}
 	}

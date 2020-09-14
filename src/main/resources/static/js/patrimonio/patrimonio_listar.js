@@ -36,3 +36,7 @@ function excluir(id){
 		}
 	});
 }
+
+function editar(id){
+	window.location.href=`${context}patrimonio/${id}`;
+}

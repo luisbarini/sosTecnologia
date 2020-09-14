@@ -16,6 +16,8 @@
 <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
 <!-- Google Font: Source Sans Pro -->
 <link th:href="@{/externos/fonts.google.css}" rel="stylesheet">
+<!-- Select 2 -->
+<link th:href="@{/plugins/select2/css/select2.css}" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
 	<div class="wrapper">
@@ -28,7 +30,7 @@
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#" role="button"><i class="fas fa-bars"></i></a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
-					href="index3.html" class="nav-link">Home</a></li>
+					href="/" class="nav-link">Home</a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
 					th:href="@{/marca/listar}" class="nav-link">Marcas</a></li>
 				<li class="nav-item d-none d-sm-inline-block"><a
@@ -204,6 +206,10 @@
 		var context = /*[[@{/}]]*/'';
 		var mensagem = [[${mensagem}!=null?${mensagem}:null]];
 	</script>
+	<!-- Select2 -->
+	<script th:src="@{/plugins/select2/js/select2.full.min.js}"
+		type="text/javascript"></script>
+	<script th:src="@{/plugins/select2/js/i18n/pt-BR.js}" type="text/javascript"></script>
 	<!-- Espaço para inserir mais scripts -->
 	<section layout:fragment="javascript"></section>
 </body>
