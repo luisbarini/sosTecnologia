@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="base/layout">
+
+<section layout:fragment="titulo">
+	<div class="container-fluid">
+		<div class="row mb-2">
+			<div class="col-sm-6">
+				<h1 class="m-0 text-dark">Patrimônio</h1>
+			</div>
+			<!-- /.col -->
+			<div class="col-sm-6">
+				<ol class="breadcrumb float-sm-right">
+					<li class="breadcrumb-item"><a href="#">Patrimônio</a></li>
+					<li class="breadcrumb-item active">Cadastrar / Editar</li>
+				</ol>
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+</section>
+
+<section layout:fragment="conteudo" class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<!-- left column -->
+			<div class="col-md-12">
+				<!-- general form elements -->
+				<div class="card card-primary">
+					<div class="card-header">
+						<h3 class="card-title">Dados do Patrimônio</h3>
+					</div>
+					<!-- /.card-header -->
+					<!-- form start -->
+					<form role="form" onsubmit="return salvar()" th:object="${entity}">
+						<div class="card-body">
+							<div class="form-group">
+								<input type="hidden" th:if="*{id} != null" th:value="*{id}"
+									id="input_id">
+							<input type="hidden" th:if="*{tombo} != null" th:value="*{tombo}"
+									id="input_tombo">		
+							 <label for="input_nome">Nome</label> <input
+									type="text" class="form-control" id="input_nome" required
+									maxlength="100" placeholder="Insira um nome para o tombo"
+									th:value="*{nome}">
+							</div>
+							<div class="form-group">
+								<label>Descrição</label>
+								<textarea class="form-control" rows="3" th:field="*{descricao}"
+									required id="input_descricao" maxlength="2000"
+									placeholder="Decreva os detalhes do patrimônio"></textarea>
+							</div>
+							<div class="form-group">
+								<label>Marca</label> <select class="form-control select2"
+									style="width: 100%" required id="select_marca" th:field="*{marca.id}">
+									<option value=""></option>
+									<option th:each="marca : ${marcas}" th:value="${marca.id}"
+										th:text="${marca.descricao}"></option>
+								</select>
+							</div>
+						</div>
+						<!-- /.card-body -->
+						<div class="card-footer">
+							<button type="submit" class="btn btn-primary">Salvar</button>
+							<a class="btn btn-default float-right" th:href="@{/patrimonio/listar}"><span
+								class="fa fa fa-file-text-o">Voltar</span></a>
+						</div>
+					</form>
+				</div>
+				<!-- /.card -->
+			</div>
+		</div>
+	</div>
+</section>
+
+<section layout:fragment="javascript">
+	<script type='text/javascript'
+		th:src="@{/dwr/interface/PatrimonioRemoteProxy.js}"></script>
+	<script type='text/javascript'
+		th:src="@{/js/patrimonio/patrimonio_editar.js}"></script>
+</section>
