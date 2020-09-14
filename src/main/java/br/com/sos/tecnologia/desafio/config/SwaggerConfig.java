@@ -1,5 +1,7 @@
 package br.com.sos.tecnologia.desafio.config;
 
+import org.directwebremoting.spring.DwrSpringServlet;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,7 +16,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("br.com.sos.tecnologia.desafio.restController"))
                 .paths(PathSelectors.any())
                 .build();
     }
