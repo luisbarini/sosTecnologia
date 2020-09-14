@@ -14,7 +14,7 @@ import br.com.sos.tecnologia.desafio.entity.PatrimonioEntity;
 import br.com.sos.tecnologia.desafio.service.PatrimonioService;
 
 @Service
-@RemoteProxy
+@RemoteProxy(name = "PatrimonioRemoteProxy")
 public class PatrimonioRemoteProxy {
 	private final PatrimonioService service;
 
